@@ -2,7 +2,7 @@ import utils from './utils.js';
 import RNA from './RNA.js';
 import controls from './controls.js';
 
-const SAMPLES = 10; // Número de amostras (agentes) no algoritmo genético
+const SAMPLES = 2; // Número de amostras (agentes) no algoritmo genético
 const game = Runner.instance_; // Instância do jogo "Runner"
 let dinoList = []; // Lista de dinossauros
 let dinoIndex = 0; // Índice do dinossauro atual na lista
@@ -78,7 +78,7 @@ setInterval(() => {
 
   
     // Processa as informações no dinossauro atual
-    const [jump, crounch] = dino.compute([
+    const [jump, crouch] = dino.compute([
       distance,
       speed,
       height,
@@ -86,9 +86,9 @@ setInterval(() => {
 
 
     // Executa as ações com base nas probabilidades calculadas
-    if (jump === crounch) return; // Se a probabilidade de salto e agachamento forem iguais, nenhuma ação é tomada
+    if (jump === crouch) return; // Se a probabilidade de salto e agachamento forem iguais, nenhuma ação é tomada
     if (jump) controls.dispatch('jump'); // Se a probabilidade de salto for verdadeira, o dinossauro executa um salto
-    if (crounch) controls.dispatch('crounch'); // Se a probabilidade de agachamento for verdadeira, o dinossauro se agacha
+    if (crouch) controls.dispatch('crouch'); // Se a probabilidade de agachamento for verdadeira, o dinossauro se agacha
   }
 }, 100);
 

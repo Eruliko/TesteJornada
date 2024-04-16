@@ -90,7 +90,7 @@ class RNA {
 
 
   // Função que realiza mutação em todos os neurônios da RNA
-  mutate(rate = 1) {
+  mutate(rate = 0.2) {
     for (const level of this.levelList) {
       for (const neuron of level) neuron.mutate(rate);
     }
